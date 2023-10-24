@@ -24,11 +24,18 @@ const AxiosHelper_1 = __importDefault(require("./lib/AxiosHelper"));
         const xml = yield (0, xmlParser_1.default)(xmlString);
         const axios = new AxiosHelper_1.default();
         describe('Rewrite Rules', function () {
-            xml.urlrewrite.rule.forEach(rule => {
+            const rules = xml.urlrewrite.rule;
+            const uniqueRules = [];
+            rules.forEach(rule => {
                 const from = rule.from[0];
+                // xml file has duplicated rules.
+                if (uniqueRules.indexOf(from) != -1) {
+                    return;
+                }
+                uniqueRules.push(from);
                 const to = rule.to[0]._ ? rule.to[0]._ : rule.to[0];
                 const rewriteRule = new RewriteRule_1.default({
-                    from: rule.from[0],
+                    from,
                     // @ts-ignore
                     to,
                 });
