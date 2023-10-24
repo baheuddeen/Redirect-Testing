@@ -13,11 +13,18 @@ import { expect } from "chai";
     const xml = await xmlParser(xmlString);
     const axios = new AxiosHelper();
     describe('Rewrite Rules', function () { 
-        xml.urlrewrite.rule.forEach(rule => {
+        const rules = xml.urlrewrite.rule;
+        const uniqueRules = [];
+        rules.forEach(rule => {
             const from = rule.from[0];
+            // xml file has duplicated rules.
+            if (uniqueRules.indexOf(from) != -1) {
+                return;
+            }
+            uniqueRules.push(from)
             const to = rule.to[0]._ ? rule.to[0]._ : rule.to[0];
             const rewriteRule = new RewriteRule({
-                from: rule.from[0],
+                from,
                 // @ts-ignore
                 to,
             });
