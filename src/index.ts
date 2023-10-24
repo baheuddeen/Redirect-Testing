@@ -28,8 +28,11 @@ import { expect } from "chai";
                     const response = await axios.sendRequest(rewriteRule.fromLink);
                     res = response;
                 });
-                it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => {
-                    const redirectUrl = res?.request?.res?.responseUrl?.replace(AxiosHelper.baseUrl,"");  
+                it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => {                    
+                    const redirectUrl = res?.headers?.location
+                        .replace("/onshape-corp-dev", "")
+                        .replace("/onshape-corp-stage", "")
+                        .replace("/onshape-corp-live", "");  
                     if (redirectUrl != rewriteRule.expectedToLink) {
                         throw new Error (`Actual: ${redirectUrl} Not Equal Expected: ${rewriteRule.expectedToLink}`);
                     }         
