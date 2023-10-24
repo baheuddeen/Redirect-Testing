@@ -28,9 +28,11 @@ import { expect } from "chai";
                     const response = await axios.sendRequest(rewriteRule.fromLink);
                     res = response;
                 });
-                const redirectUrl = res?.request?.res?.responseUrl?.replace(AxiosHelper.baseUrl,"");           
-                it(`Valid Redirect rule, Actual: ${redirectUrl}, Expected: ${rewriteRule.expectedToLink}`, () => {
-                    expect(redirectUrl).to.equal(rewriteRule.expectedToLink);
+                it(`Valid Redirect rule`, () => {
+                    const redirectUrl = res?.request?.res?.responseUrl?.replace(AxiosHelper.baseUrl,"");  
+                    if (redirectUrl != rewriteRule.expectedToLink) {
+                        throw new Error (`Actual: ${redirectUrl} Not Equal Expected: ${rewriteRule.expectedToLink}`);
+                    }         
                 })
 
             });

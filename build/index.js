@@ -17,7 +17,6 @@ const path_1 = __importDefault(require("path"));
 const xmlParser_1 = __importDefault(require("./lib/xmlParser"));
 const RewriteRule_1 = __importDefault(require("./lib/RewriteRule"));
 const AxiosHelper_1 = __importDefault(require("./lib/AxiosHelper"));
-const chai_1 = require("chai");
 (() => {
     setTimeout(() => __awaiter(void 0, void 0, void 0, function* () {
         const absPath = path_1.default.resolve();
@@ -35,15 +34,17 @@ const chai_1 = require("chai");
                 });
                 rewriteRule.buildLinks();
                 context(`Test Suit For Rule from: ${rule.from[0]} to`, () => {
-                    var _a, _b, _c;
                     let res;
                     it(`Get valid status code 200, 301, 302 or 404`, () => __awaiter(this, void 0, void 0, function* () {
                         const response = yield axios.sendRequest(rewriteRule.fromLink);
                         res = response;
                     }));
-                    const redirectUrl = (_c = (_b = (_a = res === null || res === void 0 ? void 0 : res.request) === null || _a === void 0 ? void 0 : _a.res) === null || _b === void 0 ? void 0 : _b.responseUrl) === null || _c === void 0 ? void 0 : _c.replace(AxiosHelper_1.default.baseUrl, "");
-                    it(`Valid Redirect rule, Actual: ${redirectUrl}, Expected: ${rewriteRule.expectedToLink}`, () => {
-                        (0, chai_1.expect)(redirectUrl).to.equal(rewriteRule.expectedToLink);
+                    it(`Valid Redirect rule`, () => {
+                        var _a, _b, _c;
+                        const redirectUrl = (_c = (_b = (_a = res === null || res === void 0 ? void 0 : res.request) === null || _a === void 0 ? void 0 : _a.res) === null || _b === void 0 ? void 0 : _b.responseUrl) === null || _c === void 0 ? void 0 : _c.replace(AxiosHelper_1.default.baseUrl, "");
+                        if (redirectUrl != rewriteRule.expectedToLink) {
+                            throw new Error(`Actual: ${redirectUrl} Not Equal Expected: ${rewriteRule.expectedToLink}`);
+                        }
                     });
                 });
             });
