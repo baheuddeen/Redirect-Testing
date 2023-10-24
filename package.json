@@ -1,0 +1,35 @@
+{
+  "name": "redirect-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "npx mocha --delay build/index.js",
+    "buildReport": "npx webpack -c report/webpack.config.js"
+  },
+  "author": "",
+  "type": "commonjs",
+  "license": "ISC",
+  "dependencies": {
+    "@types/chai": "^4.3.9",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.8.7",
+    "@types/xml2js": "^0.4.13",
+    "axios": "^1.5.1",
+    "chai": "^4.3.10",
+    "css-loader": "^6.8.1",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "mocha": "^10.2.0",
+    "mocha-multi": "^1.1.7",
+    "path-browserify": "^1.0.1",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  }
+}

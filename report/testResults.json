@@ -1,0 +1,149 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 9,
+    "passes": 1,
+    "pending": 8,
+    "failures": 0,
+    "start": "2023-07-17T16:51:16.795Z",
+    "end": "2023-07-17T16:51:26.881Z",
+    "duration": 10086
+  },
+  "tests": [
+    {
+      "title": "should accept when all fields are filled out",
+      "fullTitle": "L1 Validations Test Form should accept when all fields are filled out",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should accept when only required fields are filled out",
+      "fullTitle": "L1 Validations Test Form should accept when only required fields are filled out",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should accept UTF-8 chars",
+      "fullTitle": "L1 Validations Test Form should accept UTF-8 chars",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should accept chinese characters",
+      "fullTitle": "L1 Validations Test Form should accept chinese characters",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should reject empty required fields",
+      "fullTitle": "L1 Validations Test Form should reject empty required fields",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should reject HTML code",
+      "fullTitle": "L1 Validations Test Form should reject HTML code",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should reject URLs",
+      "fullTitle": "L1 Validations Test Form should reject URLs",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should redirect when user indicates that they are a student",
+      "fullTitle": "L1 Validations Free Trial Form should redirect when user indicates that they are a student",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should accept on typical input using formfills function",
+      "fullTitle": "L1 Validations Tech Meetup Form should accept on typical input using formfills function",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "duration": 10082,
+      "currentRetry": 0,
+      "speed": "slow",
+      "err": {}
+    }
+  ],
+  "pending": [
+    {
+      "title": "should accept when all fields are filled out",
+      "fullTitle": "L1 Validations Test Form should accept when all fields are filled out",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should accept when only required fields are filled out",
+      "fullTitle": "L1 Validations Test Form should accept when only required fields are filled out",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should accept UTF-8 chars",
+      "fullTitle": "L1 Validations Test Form should accept UTF-8 chars",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should accept chinese characters",
+      "fullTitle": "L1 Validations Test Form should accept chinese characters",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should reject empty required fields",
+      "fullTitle": "L1 Validations Test Form should reject empty required fields",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should reject HTML code",
+      "fullTitle": "L1 Validations Test Form should reject HTML code",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should reject URLs",
+      "fullTitle": "L1 Validations Test Form should reject URLs",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "should redirect when user indicates that they are a student",
+      "fullTitle": "L1 Validations Free Trial Form should redirect when user indicates that they are a student",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "currentRetry": 0,
+      "err": {}
+    }
+  ],
+  "failures": [],
+  "passes": [
+    {
+      "title": "should accept on typical input using formfills function",
+      "fullTitle": "L1 Validations Tech Meetup Form should accept on typical input using formfills function",
+      "file": "/Users/maxwell/Documents/GitHub/www-onshape-automated-testing/build/test/validations.js",
+      "duration": 10082,
+      "currentRetry": 0,
+      "speed": "slow",
+      "err": {}
+    }
+  ]
+}

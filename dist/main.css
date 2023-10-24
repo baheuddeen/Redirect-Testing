@@ -1,0 +1,54 @@
+/*!********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./report/style.css ***!
+  \********************************************************************/
+@font-face {
+    font-family: "PTCRaleway";
+    src: url(4068a6d8e2329e4ffd3d.ttf);
+}
+
+body{
+    font-family: "PTCRaleway";
+}
+
+dt{
+    font-weight: bold;
+}
+
+pre{
+    display: none;
+}
+
+dd {
+    margin-left: 0;
+}
+
+body > section > h1 {
+    text-align: center;
+    background-color: lightgray;
+}
+
+img {
+    display: block;
+}
+
+img.hidden {
+    display: none;
+}
+
+dl > section > dl {
+    background-color: lightgreen;
+    display: block;
+    border: solid 1px black;
+}
+
+section section {
+    border: solid 1px black;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.error{
+    background-color: lightpink;
+}
+
+
