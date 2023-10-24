@@ -40,7 +40,7 @@ import { expect } from "chai";
                         .replace("/onshape-corp-dev", "")
                         .replace("/onshape-corp-stage", "")
                         .replace("/onshape-corp-live", "");  
-                    if (redirectUrl != rewriteRule.expectedToLink) {
+                    if (redirectUrl.trim() != rewriteRule.expectedToLink.trim()) {
                         throw new Error (`Actual: ${redirectUrl} Not Equal Expected: ${rewriteRule.expectedToLink}`);
                     }         
                 })

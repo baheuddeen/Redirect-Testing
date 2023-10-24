@@ -49,7 +49,7 @@ const AxiosHelper_1 = __importDefault(require("./lib/AxiosHelper"));
                     it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => {
                         var _a;
                         const redirectUrl = (_a = res === null || res === void 0 ? void 0 : res.headers) === null || _a === void 0 ? void 0 : _a.location.replace("/onshape-corp-dev", "").replace("/onshape-corp-stage", "").replace("/onshape-corp-live", "");
-                        if (redirectUrl != rewriteRule.expectedToLink) {
+                        if (redirectUrl.trim() != rewriteRule.expectedToLink.trim()) {
                             throw new Error(`Actual: ${redirectUrl} Not Equal Expected: ${rewriteRule.expectedToLink}`);
                         }
                     });
