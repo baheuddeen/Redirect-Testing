@@ -39,7 +39,7 @@ const AxiosHelper_1 = __importDefault(require("./lib/AxiosHelper"));
                         const response = yield axios.sendRequest(rewriteRule.fromLink);
                         res = response;
                     }));
-                    it(`Valid Redirect rule`, () => {
+                    it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => {
                         var _a, _b, _c;
                         const redirectUrl = (_c = (_b = (_a = res === null || res === void 0 ? void 0 : res.request) === null || _a === void 0 ? void 0 : _a.res) === null || _b === void 0 ? void 0 : _b.responseUrl) === null || _c === void 0 ? void 0 : _c.replace(AxiosHelper_1.default.baseUrl, "");
                         if (redirectUrl != rewriteRule.expectedToLink) {
