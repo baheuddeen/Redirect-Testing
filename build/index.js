@@ -35,11 +35,11 @@ const AxiosHelper_1 = __importDefault(require("./lib/AxiosHelper"));
                     // @ts-ignore
                     to,
                 });
-                if (uniqueRules.indexOf(from) != -1) {
+                rewriteRule.buildLinks();
+                if (uniqueRules.indexOf(rewriteRule.fromLink) != -1) {
                     return;
                 }
-                uniqueRules.push(rewriteRule.from);
-                rewriteRule.buildLinks();
+                uniqueRules.push(rewriteRule.fromLink);
                 context(`Test Suit For Rule from: ${rule.from[0]} to`, () => {
                     let res;
                     it(`Get valid status code 200, 301, 302 or 404`, () => __awaiter(this, void 0, void 0, function* () {

@@ -24,11 +24,11 @@ import { expect } from "chai";
                 // @ts-ignore
                 to,
             });
+            rewriteRule.buildLinks();            
             if (uniqueRules.indexOf(rewriteRule.fromLink) != -1) {
                 return;
             }
             uniqueRules.push(rewriteRule.fromLink)
-            rewriteRule.buildLinks();
             context(`Test Suit For Rule from: ${rule.from[0]} to`, () => {
                 let res;
                 it(`Get valid status code 200, 301, 302 or 404`, async () =>{
