@@ -24,10 +24,10 @@ import { expect } from "chai";
                 // @ts-ignore
                 to,
             });
-            if (uniqueRules.indexOf(from) != -1) {
+            if (uniqueRules.indexOf(rewriteRule.fromLink) != -1) {
                 return;
             }
-            uniqueRules.push(rewriteRule.from)
+            uniqueRules.push(rewriteRule.fromLink)
             rewriteRule.buildLinks();
             context(`Test Suit For Rule from: ${rule.from[0]} to`, () => {
                 let res;
