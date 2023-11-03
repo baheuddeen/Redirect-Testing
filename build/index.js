@@ -49,7 +49,7 @@ const AxiosHelper_1 = __importDefault(require("./lib/AxiosHelper"));
                     it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => {
                         var _a;
                         if (!((_a = res === null || res === void 0 ? void 0 : res.headers) === null || _a === void 0 ? void 0 : _a.location)) {
-                            throw new Error("no location Response");
+                            throw new Error("No Redirect detected");
                         }
                         const redirectUrl = res.headers.location
                             .replace("/onshape-corp-dev", "")
