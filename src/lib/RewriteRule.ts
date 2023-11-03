@@ -28,8 +28,9 @@ export default class RewriteRule {
         to: string,
     }) {
         this.from = 
-            from.replace(/^/g, "") // delete ^
+            from?.replace(/^/g, "") // delete ^
             .replace(/\$/g, "")  // delete $
+            .trim()
             .split('/')
             .splice(1)
             .map((chunk) => {

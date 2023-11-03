@@ -18,16 +18,16 @@ import { expect } from "chai";
         rules.forEach(rule => {
             const from = rule.from[0];
             // xml file has duplicated rules.
-            if (uniqueRules.indexOf(from) != -1) {
-                return;
-            }
-            uniqueRules.push(from)
             const to = rule.to[0]._ ? rule.to[0]._ : rule.to[0];
             const rewriteRule = new RewriteRule({
                 from,
                 // @ts-ignore
                 to,
             });
+            if (uniqueRules.indexOf(from) != -1) {
+                return;
+            }
+            uniqueRules.push(rewriteRule.from)
             rewriteRule.buildLinks();
             context(`Test Suit For Rule from: ${rule.from[0]} to`, () => {
                 let res;
@@ -35,8 +35,11 @@ import { expect } from "chai";
                     const response = await axios.sendRequest(rewriteRule.fromLink);
                     res = response;
                 });
-                it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => {                    
-                    const redirectUrl = res?.headers?.location
+                it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => { 
+                    if(!res?.headers?.location) {
+                        throw new Error("no location Response")
+                    }                   
+                    const redirectUrl = res.headers.location
                         .replace("/onshape-corp-dev", "")
                         .replace("/onshape-corp-stage", "")
                         .replace("/onshape-corp-live", "");  

@@ -8,11 +8,7 @@ class RewriteRule {
     constructor({ from, to, }) {
         this.regexValues = [];
         this.from =
-            from.replace(/^/g, "") // delete ^
-                .replace(/\$/g, "") // delete $
-                .split('/')
-                .splice(1)
-                .map((chunk) => {
+            from === null || from === void 0 ? void 0 : from.replace(/^/g, "").replace(/\$/g, "").trim().split('/').splice(1).map((chunk) => {
                 return {
                     text: chunk,
                     isRegex: RegexHelper_1.default.includeRegex(chunk),
