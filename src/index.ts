@@ -37,7 +37,7 @@ import { expect } from "chai";
                 });
                 it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => { 
                     if(!res?.headers?.location) {
-                        throw new Error("no location Response")
+                        throw new Error("No Redirect detected");
                     }                   
                     const redirectUrl = res.headers.location
                         .replace("/onshape-corp-dev", "")
