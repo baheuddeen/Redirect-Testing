@@ -43,7 +43,7 @@ const AxiosHelper_1 = __importDefault(require("./lib/AxiosHelper"));
                 context(`Test Suit For Rule from: ${rule.from[0]} to`, () => {
                     let res;
                     it(`Get valid status code 200, 301, 302 or 404`, () => __awaiter(this, void 0, void 0, function* () {
-                        const response = yield axios.sendRequestTestEnv(rewriteRule.fromLink);
+                        const response = yield axios.sendRequest(rewriteRule.fromLink);
                         res = response;
                     }));
                     it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => {
