@@ -47,7 +47,7 @@ import { expect } from "chai";
                     if (testLoc && liveLoc) {
                         const testUrl = new URL(testLoc);
                         const liveUrl = new URL(liveLoc);                        
-                        if (testUrl.pathname) {
+                        if (testUrl.pathname != liveUrl.pathname) {
                             throw new Error (`Actual: ${testUrl.pathname} Not Equal Expected: ${liveUrl.pathname}`);
                         }
                         if(liveUrl.search && liveUrl.search != testUrl.search) {
