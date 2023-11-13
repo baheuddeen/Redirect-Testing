@@ -15,8 +15,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 class AxiosHelper {
     constructor() {
-        this.customAxios = axios_1.default.create({
-            baseURL: AxiosHelper.baseUrl,
+        const headers = {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'none',
+            'Sec-Fetch-User': '?1',
+            'Pragma': 'no-cache',
+            'Cache-Control': 'no-cache',
+        };
+        this.customAxiosTest = axios_1.default.create({
+            baseURL: AxiosHelper.baseUrlTest,
             timeout: 5000,
             validateStatus: (validateStatus) => {
                 return (validateStatus >= 200 && validateStatus < 350) || validateStatus == 404;
@@ -26,30 +39,39 @@ class AxiosHelper {
             //   username: 'yourUsername',
             //   password: 'yourPassword',
             // },
-            headers: {
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-                'Accept-Language': 'en-US,en;q=0.5',
-                'Accept-Encoding': 'gzip, deflate, br',
-                'Connection': 'keep-alive',
-                'Upgrade-Insecure-Requests': '1',
-                'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': 'navigate',
-                'Sec-Fetch-Site': 'none',
-                'Sec-Fetch-User': '?1',
-                'Pragma': 'no-cache',
-                'Cache-Control': 'no-cache',
+        });
+        this.customAxiosLive = axios_1.default.create({
+            baseURL: AxiosHelper.baseUrlLive,
+            timeout: 5000,
+            validateStatus: (validateStatus) => {
+                return (validateStatus >= 200 && validateStatus < 350) || validateStatus == 404;
             },
+            maxRedirects: 0,
+            // auth: {
+            //   username: 'yourUsername',
+            //   password: 'yourPassword',
+            // },
         });
     }
-    sendRequest(url) {
+    sendRequestTest(url) {
         return __awaiter(this, void 0, void 0, function* () {
             const requestConfig = {
                 method: 'GET',
                 url: url,
             };
-            return this.customAxios(requestConfig);
+            return this.customAxiosTest(requestConfig);
+        });
+    }
+    sendRequestLive(url) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const requestConfig = {
+                method: 'GET',
+                url: url,
+            };
+            return this.customAxiosLive(requestConfig);
         });
     }
 }
-AxiosHelper.baseUrl = "https://onshape-corp-dev-test.cphostaccess.com";
+AxiosHelper.baseUrlTest = "https://onshape-corp-dev-test.cphostaccess.com";
+AxiosHelper.baseUrlLive = "https://www.onshape.com";
 exports.default = AxiosHelper;

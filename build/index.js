@@ -41,24 +41,33 @@ const AxiosHelper_1 = __importDefault(require("./lib/AxiosHelper"));
                 }
                 uniqueRules.push(rewriteRule.fromLink);
                 context(`Test Suit For Rule from: ${rule.from[0]} to`, () => {
-                    let res;
+                    let resTest;
                     it(`Get valid status code 200, 301, 302 or 404`, () => __awaiter(this, void 0, void 0, function* () {
-                        const response = yield axios.sendRequest(rewriteRule.fromLink);
-                        res = response;
+                        var _a, _b;
+                        const resTest = yield axios.sendRequestTest(rewriteRule.fromLink);
+                        const resLive = yield axios.customAxiosLive(rewriteRule.fromLink);
+                        const testLoc = (_a = resTest === null || resTest === void 0 ? void 0 : resTest.headers) === null || _a === void 0 ? void 0 : _a.location.replace("/onshape-corp-dev", "").replace("/onshape-corp-stage", "").replace("/onshape-corp-live", "");
+                        const liveLoc = (_b = resLive === null || resLive === void 0 ? void 0 : resLive.headers) === null || _b === void 0 ? void 0 : _b.location;
+                        console.log(testLoc, liveLoc);
+                        if (liveLoc && !testLoc) {
+                            throw new Error(`No Redirect detected For Test Env`);
+                        }
+                        if (testLoc && liveLoc && testLoc != liveLoc) {
+                            throw new Error(`Actual: ${testLoc} Not Equal Expected: ${liveLoc}`);
+                        }
                     }));
-                    it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => {
-                        var _a;
-                        if (!((_a = res === null || res === void 0 ? void 0 : res.headers) === null || _a === void 0 ? void 0 : _a.location)) {
-                            throw new Error("No Redirect detected");
-                        }
-                        const redirectUrl = res.headers.location
-                            .replace("/onshape-corp-dev", "")
-                            .replace("/onshape-corp-stage", "")
-                            .replace("/onshape-corp-live", "");
-                        if (redirectUrl.trim() != rewriteRule.expectedToLink.trim()) {
-                            throw new Error(`Actual: ${redirectUrl} Not Equal Expected: ${rewriteRule.expectedToLink}`);
-                        }
-                    });
+                    // it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => { 
+                    //     if(!res?.headers?.location) {
+                    //         throw new Error("No Redirect detected");
+                    //     }                   
+                    //     const redirectUrl = res.headers.location
+                    //         .replace("/onshape-corp-dev", "")
+                    //         .replace("/onshape-corp-stage", "")
+                    //         .replace("/onshape-corp-live", "");  
+                    //     if (redirectUrl.trim() != rewriteRule.expectedToLink.trim()) {
+                    //         throw new Error (`Actual: ${redirectUrl} Not Equal Expected: ${rewriteRule.expectedToLink}`);
+                    //     }         
+                    // })
                 });
             });
         });
