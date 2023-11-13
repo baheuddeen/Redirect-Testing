@@ -55,9 +55,11 @@ const AxiosHelper_1 = __importDefault(require("./lib/AxiosHelper"));
                         if (testLoc && liveLoc) {
                             const testUrl = new URL(testLoc);
                             const liveUrl = new URL(liveLoc);
-                            console.log(testUrl.pathname + testUrl.search, liveUrl.pathname + liveUrl.search);
-                            if (testUrl.pathname + testUrl.search != liveUrl.pathname + liveUrl.search) {
-                                throw new Error(`Actual: ${testLoc} Not Equal Expected: ${liveLoc}`);
+                            if (testUrl.pathname != liveUrl.pathname) {
+                                throw new Error(`Actual: ${testUrl.pathname} Not Equal Expected: ${liveUrl.pathname}`);
+                            }
+                            if (liveUrl.search && liveUrl.search != testUrl.search) {
+                                throw new Error(`Wrong Query Params Actual: ${testUrl.search} Not Equal Expected: ${liveUrl.search}`);
                             }
                         }
                     }));
