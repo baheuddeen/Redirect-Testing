@@ -7,17 +7,23 @@
             <dt>Get valid status code 200, 301, 302 or 404</dt>
             <dt>D:\onshape-repos\Redirect Testing\build\index.js</dt>
             <dd><pre><code>__awaiter(this, void 0, void 0, function* () {
-                        var _a, _b;
+                        var _a, _b, _c, _d;
                         const resTest = yield axios.sendRequestTest(rewriteRule.fromLink);
                         const resLive = yield axios.customAxiosLive(rewriteRule.fromLink);
-                        const testLoc = (_a = resTest === null || resTest === void 0 ? void 0 : resTest.headers) === null || _a === void 0 ? void 0 : _a.location.replace(&#x22;/onshape-corp-dev&#x22;, &#x22;&#x22;).replace(&#x22;/onshape-corp-stage&#x22;, &#x22;&#x22;).replace(&#x22;/onshape-corp-live&#x22;, &#x22;&#x22;);
-                        const liveLoc = (_b = resLive === null || resLive === void 0 ? void 0 : resLive.headers) === null || _b === void 0 ? void 0 : _b.location;
-                        console.log(testLoc, liveLoc);
+                        const testLoc = (_b = (_a = resTest === null || resTest === void 0 ? void 0 : resTest.request) === null || _a === void 0 ? void 0 : _a.res) === null || _b === void 0 ? void 0 : _b.responseUrl;
+                        const liveLoc = (_d = (_c = resLive === null || resLive === void 0 ? void 0 : resLive.request) === null || _c === void 0 ? void 0 : _c.res) === null || _d === void 0 ? void 0 : _d.responseUrl;
+                        // console.log(testLoc, liveLoc);
                         if (liveLoc &#x26;&#x26; !testLoc) {
+                            console.log(&#x27;shit&#x27;, liveLoc, testLoc);
                             throw new Error(&#x60;No Redirect detected For Test Env&#x60;);
                         }
-                        if (testLoc &#x26;&#x26; liveLoc &#x26;&#x26; testLoc != liveLoc) {
-                            throw new Error(&#x60;Actual: ${testLoc} Not Equal Expected: ${liveLoc}&#x60;);
+                        if (testLoc &#x26;&#x26; liveLoc) {
+                            const testUrl = new URL(testLoc);
+                            const liveUrl = new URL(liveLoc);
+                            console.log(testUrl.pathname + testUrl.search, liveUrl.pathname + liveUrl.search);
+                            // if(relativeTest != relativeLive) {
+                            //     throw new Error (&#x60;Actual: ${testLoc} Not Equal Expected: ${liveLoc}&#x60;);
+                            // }
                         }
                     })</code></pre></dd>
           </dl>
@@ -28,19 +34,53 @@
             <dt>Get valid status code 200, 301, 302 or 404</dt>
             <dt>D:\onshape-repos\Redirect Testing\build\index.js</dt>
             <dd><pre><code>__awaiter(this, void 0, void 0, function* () {
-                        var _a, _b;
+                        var _a, _b, _c, _d;
                         const resTest = yield axios.sendRequestTest(rewriteRule.fromLink);
                         const resLive = yield axios.customAxiosLive(rewriteRule.fromLink);
-                        const testLoc = (_a = resTest === null || resTest === void 0 ? void 0 : resTest.headers) === null || _a === void 0 ? void 0 : _a.location.replace(&#x22;/onshape-corp-dev&#x22;, &#x22;&#x22;).replace(&#x22;/onshape-corp-stage&#x22;, &#x22;&#x22;).replace(&#x22;/onshape-corp-live&#x22;, &#x22;&#x22;);
-                        const liveLoc = (_b = resLive === null || resLive === void 0 ? void 0 : resLive.headers) === null || _b === void 0 ? void 0 : _b.location;
-                        console.log(testLoc, liveLoc);
+                        const testLoc = (_b = (_a = resTest === null || resTest === void 0 ? void 0 : resTest.request) === null || _a === void 0 ? void 0 : _a.res) === null || _b === void 0 ? void 0 : _b.responseUrl;
+                        const liveLoc = (_d = (_c = resLive === null || resLive === void 0 ? void 0 : resLive.request) === null || _c === void 0 ? void 0 : _c.res) === null || _d === void 0 ? void 0 : _d.responseUrl;
+                        // console.log(testLoc, liveLoc);
                         if (liveLoc &#x26;&#x26; !testLoc) {
+                            console.log(&#x27;shit&#x27;, liveLoc, testLoc);
                             throw new Error(&#x60;No Redirect detected For Test Env&#x60;);
                         }
-                        if (testLoc &#x26;&#x26; liveLoc &#x26;&#x26; testLoc != liveLoc) {
-                            throw new Error(&#x60;Actual: ${testLoc} Not Equal Expected: ${liveLoc}&#x60;);
+                        if (testLoc &#x26;&#x26; liveLoc) {
+                            const testUrl = new URL(testLoc);
+                            const liveUrl = new URL(liveLoc);
+                            console.log(testUrl.pathname + testUrl.search, liveUrl.pathname + liveUrl.search);
+                            // if(relativeTest != relativeLive) {
+                            //     throw new Error (&#x60;Actual: ${testLoc} Not Equal Expected: ${liveLoc}&#x60;);
+                            // }
                         }
                     })</code></pre></dd>
+          </dl>
+        </section>
+        <section class="suite">
+          <h1>Test Suit For Rule from: /en/resource-center/innovation-blog/* to</h1>
+          <dl>
+            <dt class="error">Get valid status code 200, 301, 302 or 404</dt>
+            <dt class="error">D:\onshape-repos\Redirect Testing\build\index.js</dt>
+            <dd class="error"><pre><code>__awaiter(this, void 0, void 0, function* () {
+                        var _a, _b, _c, _d;
+                        const resTest = yield axios.sendRequestTest(rewriteRule.fromLink);
+                        const resLive = yield axios.customAxiosLive(rewriteRule.fromLink);
+                        const testLoc = (_b = (_a = resTest === null || resTest === void 0 ? void 0 : resTest.request) === null || _a === void 0 ? void 0 : _a.res) === null || _b === void 0 ? void 0 : _b.responseUrl;
+                        const liveLoc = (_d = (_c = resLive === null || resLive === void 0 ? void 0 : resLive.request) === null || _c === void 0 ? void 0 : _c.res) === null || _d === void 0 ? void 0 : _d.responseUrl;
+                        // console.log(testLoc, liveLoc);
+                        if (liveLoc &#x26;&#x26; !testLoc) {
+                            console.log(&#x27;shit&#x27;, liveLoc, testLoc);
+                            throw new Error(&#x60;No Redirect detected For Test Env&#x60;);
+                        }
+                        if (testLoc &#x26;&#x26; liveLoc) {
+                            const testUrl = new URL(testLoc);
+                            const liveUrl = new URL(liveLoc);
+                            console.log(testUrl.pathname + testUrl.search, liveUrl.pathname + liveUrl.search);
+                            // if(relativeTest != relativeLive) {
+                            //     throw new Error (&#x60;Actual: ${testLoc} Not Equal Expected: ${liveLoc}&#x60;);
+                            // }
+                        }
+                    })</code></pre></dd>
+            <dd class="error">AxiosError: timeout of 5000ms exceeded</dd>
           </dl>
         </section>
         <section class="suite">
@@ -49,63 +89,27 @@
             <dt>Get valid status code 200, 301, 302 or 404</dt>
             <dt>D:\onshape-repos\Redirect Testing\build\index.js</dt>
             <dd><pre><code>__awaiter(this, void 0, void 0, function* () {
-                        var _a, _b;
+                        var _a, _b, _c, _d;
                         const resTest = yield axios.sendRequestTest(rewriteRule.fromLink);
                         const resLive = yield axios.customAxiosLive(rewriteRule.fromLink);
-                        const testLoc = (_a = resTest === null || resTest === void 0 ? void 0 : resTest.headers) === null || _a === void 0 ? void 0 : _a.location.replace(&#x22;/onshape-corp-dev&#x22;, &#x22;&#x22;).replace(&#x22;/onshape-corp-stage&#x22;, &#x22;&#x22;).replace(&#x22;/onshape-corp-live&#x22;, &#x22;&#x22;);
-                        const liveLoc = (_b = resLive === null || resLive === void 0 ? void 0 : resLive.headers) === null || _b === void 0 ? void 0 : _b.location;
-                        console.log(testLoc, liveLoc);
+                        const testLoc = (_b = (_a = resTest === null || resTest === void 0 ? void 0 : resTest.request) === null || _a === void 0 ? void 0 : _a.res) === null || _b === void 0 ? void 0 : _b.responseUrl;
+                        const liveLoc = (_d = (_c = resLive === null || resLive === void 0 ? void 0 : resLive.request) === null || _c === void 0 ? void 0 : _c.res) === null || _d === void 0 ? void 0 : _d.responseUrl;
+                        // console.log(testLoc, liveLoc);
                         if (liveLoc &#x26;&#x26; !testLoc) {
+                            console.log(&#x27;shit&#x27;, liveLoc, testLoc);
                             throw new Error(&#x60;No Redirect detected For Test Env&#x60;);
                         }
-                        if (testLoc &#x26;&#x26; liveLoc &#x26;&#x26; testLoc != liveLoc) {
-                            throw new Error(&#x60;Actual: ${testLoc} Not Equal Expected: ${liveLoc}&#x60;);
-                        }
-                    })</code></pre></dd>
-          </dl>
-        </section>
-        <section class="suite">
-          <h1>Test Suit For Rule from: /en/resource-center/innovation-blog/* to</h1>
-          <dl>
-            <dt>Get valid status code 200, 301, 302 or 404</dt>
-            <dt>D:\onshape-repos\Redirect Testing\build\index.js</dt>
-            <dd><pre><code>__awaiter(this, void 0, void 0, function* () {
-                        var _a, _b;
-                        const resTest = yield axios.sendRequestTest(rewriteRule.fromLink);
-                        const resLive = yield axios.customAxiosLive(rewriteRule.fromLink);
-                        const testLoc = (_a = resTest === null || resTest === void 0 ? void 0 : resTest.headers) === null || _a === void 0 ? void 0 : _a.location.replace(&#x22;/onshape-corp-dev&#x22;, &#x22;&#x22;).replace(&#x22;/onshape-corp-stage&#x22;, &#x22;&#x22;).replace(&#x22;/onshape-corp-live&#x22;, &#x22;&#x22;);
-                        const liveLoc = (_b = resLive === null || resLive === void 0 ? void 0 : resLive.headers) === null || _b === void 0 ? void 0 : _b.location;
-                        console.log(testLoc, liveLoc);
-                        if (liveLoc &#x26;&#x26; !testLoc) {
-                            throw new Error(&#x60;No Redirect detected For Test Env&#x60;);
-                        }
-                        if (testLoc &#x26;&#x26; liveLoc &#x26;&#x26; testLoc != liveLoc) {
-                            throw new Error(&#x60;Actual: ${testLoc} Not Equal Expected: ${liveLoc}&#x60;);
+                        if (testLoc &#x26;&#x26; liveLoc) {
+                            const testUrl = new URL(testLoc);
+                            const liveUrl = new URL(liveLoc);
+                            console.log(testUrl.pathname + testUrl.search, liveUrl.pathname + liveUrl.search);
+                            // if(relativeTest != relativeLive) {
+                            //     throw new Error (&#x60;Actual: ${testLoc} Not Equal Expected: ${liveLoc}&#x60;);
+                            // }
                         }
                     })</code></pre></dd>
           </dl>
         </section>
         <section class="suite">
           <h1>Test Suit For Rule from: ^/en/resource-center/innovation-blog$ to</h1>
-          <dl>
-            <dt>Get valid status code 200, 301, 302 or 404</dt>
-            <dt>D:\onshape-repos\Redirect Testing\build\index.js</dt>
-            <dd><pre><code>__awaiter(this, void 0, void 0, function* () {
-                        var _a, _b;
-                        const resTest = yield axios.sendRequestTest(rewriteRule.fromLink);
-                        const resLive = yield axios.customAxiosLive(rewriteRule.fromLink);
-                        const testLoc = (_a = resTest === null || resTest === void 0 ? void 0 : resTest.headers) === null || _a === void 0 ? void 0 : _a.location.replace(&#x22;/onshape-corp-dev&#x22;, &#x22;&#x22;).replace(&#x22;/onshape-corp-stage&#x22;, &#x22;&#x22;).replace(&#x22;/onshape-corp-live&#x22;, &#x22;&#x22;);
-                        const liveLoc = (_b = resLive === null || resLive === void 0 ? void 0 : resLive.headers) === null || _b === void 0 ? void 0 : _b.location;
-                        console.log(testLoc, liveLoc);
-                        if (liveLoc &#x26;&#x26; !testLoc) {
-                            throw new Error(&#x60;No Redirect detected For Test Env&#x60;);
-                        }
-                        if (testLoc &#x26;&#x26; liveLoc &#x26;&#x26; testLoc != liveLoc) {
-                            throw new Error(&#x60;Actual: ${testLoc} Not Equal Expected: ${liveLoc}&#x60;);
-                        }
-                    })</code></pre></dd>
-          </dl>
-        </section>
-        <section class="suite">
-          <h1>Test Suit For Rule from: ^/en/blog$ to</h1>
           <dl>

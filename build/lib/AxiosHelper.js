@@ -34,7 +34,7 @@ class AxiosHelper {
             validateStatus: (validateStatus) => {
                 return (validateStatus >= 200 && validateStatus < 350) || validateStatus == 404;
             },
-            maxRedirects: 0,
+            // maxRedirects: 0,
             // auth: {
             //   username: 'yourUsername',
             //   password: 'yourPassword',
@@ -46,7 +46,7 @@ class AxiosHelper {
             validateStatus: (validateStatus) => {
                 return (validateStatus >= 200 && validateStatus < 350) || validateStatus == 404;
             },
-            maxRedirects: 0,
+            // maxRedirects: 0,
             // auth: {
             //   username: 'yourUsername',
             //   password: 'yourPassword',

@@ -35,20 +35,21 @@ import { expect } from "chai";
                 it(`Get valid status code 200, 301, 302 or 404`, async () =>{
                     const resTest = await axios.sendRequestTest(rewriteRule.fromLink);
                     const resLive = await axios.customAxiosLive(rewriteRule.fromLink);
-                    const testLoc = resTest?.headers?.location
-                            .replace("/onshape-corp-dev", "")
-                            .replace("/onshape-corp-stage", "")
-                            .replace("/onshape-corp-live", "");
+                    const testLoc = resTest?.request?.res?.responseUrl;
 
-                    const liveLoc = resLive?.headers?.location;
-                    console.log(testLoc, liveLoc);
+                    const liveLoc = resLive?.request?.res?.responseUrl;
+                    // console.log(testLoc, liveLoc);
 
-                    if (liveLoc && !testLoc) {
+                    if (liveLoc && !testLoc) {                        
                         throw new Error (`No Redirect detected For Test Env`); 
                     }
                     
-                    if (testLoc && liveLoc && testLoc != liveLoc) {
-                        throw new Error (`Actual: ${testLoc} Not Equal Expected: ${liveLoc}`);
+                    if (testLoc && liveLoc) {
+                        const testUrl = new URL(testLoc);
+                        const liveUrl = new URL(liveLoc);
+                        if(testUrl.pathname + testUrl.search != liveUrl.pathname + liveUrl.search) {
+                            throw new Error (`Actual: ${testLoc} Not Equal Expected: ${liveLoc}`);
+                        }
                     }
                 });
 

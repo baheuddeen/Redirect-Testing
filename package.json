@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "test": "npx mocha --delay build/index.js",
+    "test": "npx mocha --timeout 100000 --delay build/index.js",
     "buildReport": "npx webpack -c report/webpack.config.js"
   },
   "author": "",

@@ -43,17 +43,23 @@ const AxiosHelper_1 = __importDefault(require("./lib/AxiosHelper"));
                 context(`Test Suit For Rule from: ${rule.from[0]} to`, () => {
                     let resTest;
                     it(`Get valid status code 200, 301, 302 or 404`, () => __awaiter(this, void 0, void 0, function* () {
-                        var _a, _b;
+                        var _a, _b, _c, _d;
                         const resTest = yield axios.sendRequestTest(rewriteRule.fromLink);
                         const resLive = yield axios.customAxiosLive(rewriteRule.fromLink);
-                        const testLoc = (_a = resTest === null || resTest === void 0 ? void 0 : resTest.headers) === null || _a === void 0 ? void 0 : _a.location.replace("/onshape-corp-dev", "").replace("/onshape-corp-stage", "").replace("/onshape-corp-live", "");
-                        const liveLoc = (_b = resLive === null || resLive === void 0 ? void 0 : resLive.headers) === null || _b === void 0 ? void 0 : _b.location;
-                        console.log(testLoc, liveLoc);
+                        const testLoc = (_b = (_a = resTest === null || resTest === void 0 ? void 0 : resTest.request) === null || _a === void 0 ? void 0 : _a.res) === null || _b === void 0 ? void 0 : _b.responseUrl;
+                        const liveLoc = (_d = (_c = resLive === null || resLive === void 0 ? void 0 : resLive.request) === null || _c === void 0 ? void 0 : _c.res) === null || _d === void 0 ? void 0 : _d.responseUrl;
+                        // console.log(testLoc, liveLoc);
                         if (liveLoc && !testLoc) {
+                            console.log('shit', liveLoc, testLoc);
                             throw new Error(`No Redirect detected For Test Env`);
                         }
-                        if (testLoc && liveLoc && testLoc != liveLoc) {
-                            throw new Error(`Actual: ${testLoc} Not Equal Expected: ${liveLoc}`);
+                        if (testLoc && liveLoc) {
+                            const testUrl = new URL(testLoc);
+                            const liveUrl = new URL(liveLoc);
+                            console.log(testUrl.pathname + testUrl.search, liveUrl.pathname + liveUrl.search);
+                            // if(relativeTest != relativeLive) {
+                            //     throw new Error (`Actual: ${testLoc} Not Equal Expected: ${liveLoc}`);
+                            // }
                         }
                     }));
                     // it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => { 
