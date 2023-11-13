@@ -50,16 +50,15 @@ const AxiosHelper_1 = __importDefault(require("./lib/AxiosHelper"));
                         const liveLoc = (_d = (_c = resLive === null || resLive === void 0 ? void 0 : resLive.request) === null || _c === void 0 ? void 0 : _c.res) === null || _d === void 0 ? void 0 : _d.responseUrl;
                         // console.log(testLoc, liveLoc);
                         if (liveLoc && !testLoc) {
-                            console.log('shit', liveLoc, testLoc);
                             throw new Error(`No Redirect detected For Test Env`);
                         }
                         if (testLoc && liveLoc) {
                             const testUrl = new URL(testLoc);
                             const liveUrl = new URL(liveLoc);
                             console.log(testUrl.pathname + testUrl.search, liveUrl.pathname + liveUrl.search);
-                            // if(relativeTest != relativeLive) {
-                            //     throw new Error (`Actual: ${testLoc} Not Equal Expected: ${liveLoc}`);
-                            // }
+                            if (testUrl.pathname + testUrl.search != liveUrl.pathname + liveUrl.search) {
+                                throw new Error(`Actual: ${testLoc} Not Equal Expected: ${liveLoc}`);
+                            }
                         }
                     }));
                     // it(`Valid Redirect rule Request URL ${rewriteRule.fromLink}`, () => { 
