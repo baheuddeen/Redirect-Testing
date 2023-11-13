@@ -24,7 +24,7 @@ export default class AxiosHelper {
 
         this.customAxiosTest = axios.create({
             baseURL: AxiosHelper.baseUrlTest,
-            timeout: 5000,
+            timeout: 10000,
             validateStatus: (validateStatus) => {
                 return (validateStatus >= 200 && validateStatus < 350) || validateStatus == 404
             },
@@ -37,7 +37,7 @@ export default class AxiosHelper {
         });
         this.customAxiosLive = axios.create({
             baseURL: AxiosHelper.baseUrlLive,
-            timeout: 5000,
+            timeout: 10000,
             validateStatus: (validateStatus) => {
                 return (validateStatus >= 200 && validateStatus < 350) || validateStatus == 404
             },
