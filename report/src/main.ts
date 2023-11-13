@@ -37,3 +37,10 @@ const contextSections = Array
     const [, descriptionList] = contextSection.children;
     return descriptionList.children.length;
   });
+
+  // show errors only
+  document.querySelectorAll('section').forEach((section) =>{
+    if(!section.querySelector('.error')) {
+        section.style.display = 'none';
+    }
+});
